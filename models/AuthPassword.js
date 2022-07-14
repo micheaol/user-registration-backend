@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 const AuthPasswordSchema = new mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.ObjectId
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
     },
 
     password: {
@@ -13,6 +14,11 @@ const AuthPasswordSchema = new mongoose.Schema({
     passwordConfirmation: {
         type: String,
         require: true
+    },
+
+    date: {
+        type: Date,
+        default: Date.now
     }
 });
 
