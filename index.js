@@ -3,6 +3,7 @@ import cors from 'cors';
 
 
 import usersRoutes from './routes/user.js';
+import authRoutes from './routes/auth.js';
 import connectDB from "./config/db.js";
 
 const app = express();
@@ -19,3 +20,4 @@ connectDB();
 
 
 app.use('/api/v1/users', usersRoutes);
+app.use('/api/v1/auth', authRoutes);
