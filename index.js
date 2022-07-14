@@ -24,3 +24,6 @@ connectDB();
 app.use('/api/v1/users', usersRoutes);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/password', setPasswordRoutes);
+
+
+export default app;
