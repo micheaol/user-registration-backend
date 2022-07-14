@@ -14,5 +14,13 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         require: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
 });
+
+const User = mongoose.model('user', UserSchema);
+
+export default User;

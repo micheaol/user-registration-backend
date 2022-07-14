@@ -1,3 +1,4 @@
-export const getUsers = (req, res) => {
+export const registerUsers = (req, res) => {
+    console.log(req.body)
     res.send("User routes")
 }
