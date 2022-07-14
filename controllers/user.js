@@ -1,4 +1,6 @@
 import User from '../models/User.js';
+import jwt from 'jsonwebtoken';
+import config from 'config';
 
 
 export const registerUsers = async(req, res) => {
@@ -21,8 +23,23 @@ export const registerUsers = async(req, res) => {
 
         await user.save();
 
-        console.log(user);
-        res.send("User routes")
+        const payload = {
+            user: {
+                id: user.id
+            }
+        }
+
+        jwt.sign(
+            payload,
+            config.get('jwtSecretToken'), { expiresIn: 3600 },
+            (err, token) => {
+                if (err) throw err;
+
+                res.json({ token })
+            }
+
+        );
+
 
     } catch (error) {
         console.log(error.message)
