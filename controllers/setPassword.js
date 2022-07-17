@@ -14,16 +14,14 @@ export const getPasswordRoutes = async(req, res) => {
         res.json(setPassword)
 
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server error')
     }
 }
 
 export const setPasswordRoutes = async(req, res) => {
     let { password, confirmPassword } = req.body;
-
     const profileFields = {};
-    profileFields.user = req.user.id
+    profileFields.user = req.user?.id
 
 
     const salt = await bcrypt.genSalt(10);
@@ -51,7 +49,6 @@ export const setPasswordRoutes = async(req, res) => {
 
 
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server error')
     }
 }

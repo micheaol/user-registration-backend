@@ -6,7 +6,6 @@ export const authRoutes = async(req, res) => {
         res.json(user)
 
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server error')
     }
 }
